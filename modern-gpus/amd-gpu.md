@@ -255,6 +255,31 @@ Extras:
 * `radpg=15`: Required for HD 7730/7750/7770/R7 250/R7 250X GPU initialization
 * InjectAMD: While deprecated, some users require this for proper initialization, avoid unless absolutely necessary
 
+### **AMD APUs (ALL VARIANTS)**
+
+#### Highest Supported OS: Sonoma (14.0)
+
+### Initial Supported OS: Catalina (10.15)
+
+Supported APUs:
+
+* Ryzen 1xxx
+* Ryzen 5xxx
+* Ryzen 7x30
+
+Needed Kexts:
+
+* [NootedRed.kext](https://github.com/ChefKissInc/NootedRed/actions/workflows/main.yml)
+
+Extras:
+
+* Use MacBookPro16,3, iMac20,1 or iMacPro1,1 SMBIOS. (Using the MacPro7,1 may cause black screens.)
+* Increase VRAM size. (512MiB minimum, 1GiB+ for proper functionality)
+* Disable Legacy Boot, also known as CSM and Boot Mode. (Otherwise you will meet kernel panics like Failed to get VBIOS from VRAM.)
+* Remove WhateverGreen.kext for NootedRed.kext conflicts with it.
+* Do your macOS updates (the minor ones, not necessary to go e.g. macOS 11 > macOS 12)
+
+
 ## Unsupported AMD GPUs
 
 ### **Navi 2X and Navi 3X**
@@ -286,16 +311,3 @@ Unsupported Cards:
 * RX 550 (Lexa core)
 * RX 540X
 * RX 540
-
-### **AMD APUs (ALL VARIANTS)**
-
-#### Highest Supported OS: None
-
-The integrated GPUs found on mobile and lower end desktop AMD CPUs have unfortunately never had official support with community support quite lacking. While possible to get a display out with some work, graphics acceleration is basically impossible.
-
-Unsupported APUs:
-
-* Vega 11 (Zen)
-* Vega 8 (Zen)
-* GCN 3 (Excavator Gen 2, Steamroller)
-* GCN 2 (Excavator Gen 1, Puma, Puma +)
